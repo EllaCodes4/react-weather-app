@@ -49,6 +49,26 @@ export default function WeatherSearch() {
     </form>
   );
 
+  let footer = (
+    <footer className="mt-4">
+      <a
+        href="https://github.com/EllaCodes4/react-weather-app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open source coded
+      </a>{" "}
+      by:{" "}
+      <a
+        href="https://ellacodes.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Gabriella Corales ("EllaCodes")
+      </a>
+    </footer>
+  );
+
   if (loaded) {
     return (
       <div className="container Weather">
@@ -67,9 +87,15 @@ export default function WeatherSearch() {
           </li>
           <li className="wind">Wind: {Math.round(weather.temperature)} mph</li>
         </ul>
+        {footer}
       </div>
     );
   } else {
-    return <div className="container Weather">{form}</div>;
+    return (
+      <div className="container Weather">
+        {form}
+        {footer}
+      </div>
+    );
   }
 }
