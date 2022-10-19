@@ -1,0 +1,30 @@
+.Weather .weatherDescription,
+.city {
+  text-transform: capitalize;
+}
+.Weather .weatherIcon {
+  height: 70px;
+}
+
+.Weather .city {
+  font-size: 25px;
+  margin: 0;
+}
+
+.Weather .temperature {
+  font-size: 35px;
+  line-height: 1;
+}
+
+.Weather .weatherDescription,
+.humidity,
+.wind {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.Weather li,
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
