@@ -71,7 +71,7 @@ export default function WeatherSearch() {
 
   if (loaded) {
     return (
-      <div className="container Weather">
+      <div className="Weather">
         {form}
         <ul>
           <img
@@ -92,7 +92,7 @@ export default function WeatherSearch() {
     );
   } else {
     return (
-      <div className="container Weather">
+      <div className="Weather">
         {form}
         {footer}
       </div>
