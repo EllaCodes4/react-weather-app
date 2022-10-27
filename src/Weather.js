@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./WeatherSearch.css";
+import "./Weather.css";
 
-export default function WeatherSearch() {
+export default function Weather() {
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
@@ -51,20 +51,21 @@ export default function WeatherSearch() {
 
   let footer = (
     <footer className="mt-4">
-      <a
-        href="https://github.com/EllaCodes4/react-weather-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Open source coded
-      </a>{" "}
-      by:{" "}
+      This project was coded by {""}
       <a
         href="https://ellacodes.netlify.app/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Gabriella Corales ("EllaCodes")
+        Gabriella Corales "EllaCodes"
+      </a>{" "}
+      and is{" "}
+      <a
+        href="https://github.com/EllaCodes4/react-weather-app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        open-sourced on GitHub
       </a>
     </footer>
   );

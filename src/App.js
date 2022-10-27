@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import WeatherSearch from "./WeatherSearch";
+import Weather from "./Weather";
 
 export default function App() {
   return (
@@ -8,7 +8,7 @@ export default function App() {
       <div className="container">
         <h1>Weather App</h1>
 
-        <WeatherSearch />
+        <Weather />
       </div>
     </div>
   );
