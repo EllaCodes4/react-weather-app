@@ -1,7 +1,7 @@
-.Weather .weatherDescription,
-.city {
-  text-transform: capitalize;
+.Weather small {
+  display: block;
 }
+
 .Weather .weatherIcon {
   height: 70px;
 }
@@ -11,24 +11,65 @@
   margin: 0;
 }
 
-.Weather .temperature {
-  font-size: 35px;
-  line-height: 1;
-}
-
-.Weather .weatherDescription,
-.humidity,
-.wind {
+.Weather .currentWeather {
+  margin: 0px 98px;
   font-size: 14px;
   line-height: 1.5;
 }
+
 .Weather li,
 ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-footer a {
+.Weather .temperature {
+  font-size: 50px;
+  line-height: 1;
+}
+
+.Weather .units {
+  font-size: 25px;
+  line-height: 1;
+  position: relative;
+  top: -18px;
+  margin-left: 2px;
+}
+.Weather .weatherDescription,
+.city {
+  text-transform: capitalize;
+}
+
+.Weather .weatherDescription {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.Weather .hourlyForecast,
+.dailyForecast {
+  background: #dfdfdf;
+  padding: 10px 14px;
+}
+
+.Weather .hourlyForecast h6,
+.dailyForecast h6 {
+  text-align: left;
+  padding-left: 9px;
+}
+
+.Weather .dailyForecast hr {
+  color: white;
+  opacity: 1;
+  margin: 0px 0px 10px;
+}
+.Weather .dailyForecast .lowForecast {
+  opacity: 0.6;
+}
+
+.Weather footer {
+  font-size: 15px;
+}
+
+.Weather footer a {
   color: #385170;
 }
