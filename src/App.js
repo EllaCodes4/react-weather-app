@@ -10,7 +10,7 @@ export default function App() {
           <span role="img" aria-label="construction emoji">
             🚧
           </span>{" "}
-          Under Construction
+          Weather App Under Construction
           <span role="img" aria-label="construction emoji">
             🚧
           </span>

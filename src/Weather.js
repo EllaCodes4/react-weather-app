@@ -4,19 +4,21 @@ import "./Weather.css";
 
 export default function Weather() {
   const [city, setCity] = useState("");
-  const [loaded, setLoaded] = useState(false);
-  const [weather, setWeather] = useState({});
+  const [weatherData, setWeatherData] = useState({ loaded: false });
 
   function displayWeather(response) {
-    setLoaded(true);
     console.log(response.data);
-    setWeather({
-      temperature: response.data.main.temp,
-      wind: response.data.wind.speed,
-      humidity: response.data.main.humidity,
+    setWeatherData({
+      loaded: true,
       weatherIcon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      weatherDescription: response.data.weather[0].description,
       location: response.data.name,
+      temperature: response.data.main.temp,
+      weatherDescription: response.data.weather[0].description,
+      feelsLike: response.data.main.feels_like,
+      highTemp: response.data.main.temp_max,
+      lowTemp: response.data.main.temp_min,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
     });
   }
 
@@ -39,7 +41,7 @@ export default function Weather() {
           <input
             type="search"
             placeholder="Enter city..."
-            autoFocus={true}
+            autoFocus="on"
             onChange={updateCity}
             className="form-control"
           />
@@ -55,21 +57,30 @@ export default function Weather() {
     <div className="mt-4">
       <small>Wed, Oct 26, 7:03*</small>
       <img
-        src={weather.weatherIcon}
-        alt={weather.weatherDescription}
+        src={weatherData.weatherIcon}
+        alt={weatherData.weatherDescription}
         className="weatherIcon"
       />
-      <h1 className="city">{weather.location}</h1>
+      <h1 className="city">{weatherData.location}</h1>
       <ul className="currentWeather">
         <li className="temperature">
-          {Math.round(weather.temperature)}
+          {Math.round(weatherData.temperature)}
           <span className="units">°F</span>
         </li>
-        <li className="weatherDescription">{weather.weatherDescription}</li>
-        <li className="feelsLike">Feels like: 39°F*</li>
-        <li className="highLowTemp">H: 46°F | L: 42°F*</li>
-        <li className="humidity">Humidity: {Math.round(weather.humidity)}%</li>
-        <li className="wind">Wind: {Math.round(weather.temperature)} mph</li>
+        <li className="weatherDescription">{weatherData.weatherDescription}</li>
+        <li className="feelsLike">
+          Feels like: {Math.round(weatherData.feelsLike)}°F
+        </li>
+        <li className="highLowTemp">
+          H: {Math.round(weatherData.highTemp)}°F | L:{" "}
+          {Math.round(weatherData.lowTemp)}°F
+        </li>
+        <li className="humidity">
+          Humidity: {Math.round(weatherData.humidity)}%
+        </li>
+        <li className="wind">
+          Wind: {Math.round(weatherData.temperature)} mph
+        </li>
       </ul>
     </div>
   );
@@ -82,8 +93,8 @@ export default function Weather() {
           7:00
           <br />
           <img
-            src={weather.weatherIcon}
-            alt={weather.weatherDescription}
+            src={weatherData.weatherIcon}
+            alt={weatherData.weatherDescription}
             width="45"
           />
           <br />
@@ -93,8 +104,8 @@ export default function Weather() {
           8:00
           <br />
           <img
-            src={weather.weatherIcon}
-            alt={weather.weatherDescription}
+            src={weatherData.weatherIcon}
+            alt={weatherData.weatherDescription}
             width="45"
           />
           <br />
@@ -104,8 +115,8 @@ export default function Weather() {
           9:00
           <br />
           <img
-            src={weather.weatherIcon}
-            alt={weather.weatherDescription}
+            src={weatherData.weatherIcon}
+            alt={weatherData.weatherDescription}
             width="45"
           />
           <br />
@@ -115,8 +126,8 @@ export default function Weather() {
           10:00
           <br />
           <img
-            src={weather.weatherIcon}
-            alt={weather.weatherDescription}
+            src={weatherData.weatherIcon}
+            alt={weatherData.weatherDescription}
             width="45"
           />
           <br />
@@ -252,7 +263,7 @@ export default function Weather() {
     </footer>
   );
 
-  if (loaded) {
+  if (weatherData.loaded) {
     return (
       <div className="Weather">
         {form}
