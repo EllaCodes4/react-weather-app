@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import HourlyForecast from "./HourlyForecast";
+import DailyForecast from "./DailyForecast";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -58,162 +60,6 @@ export default function Weather(props) {
     </form>
   );
 
-  let hourlyForecast = (
-    <div className="hourlyForecast border border-secondary rounded mt-4">
-      <h6>Hourly Forecast*</h6>
-      <div className="row">
-        <div className="col-3">
-          7:00
-          <br />
-          <img
-            src={weatherData.weatherIcon}
-            alt={weatherData.weatherDescription}
-            width="45"
-          />
-          <br />
-          44°
-        </div>
-        <div className="col-3">
-          8:00
-          <br />
-          <img
-            src={weatherData.weatherIcon}
-            alt={weatherData.weatherDescription}
-            width="45"
-          />
-          <br />
-          44°
-        </div>
-        <div className="col-3">
-          9:00
-          <br />
-          <img
-            src={weatherData.weatherIcon}
-            alt={weatherData.weatherDescription}
-            width="45"
-          />
-          <br />
-          44°
-        </div>
-        <div className="col-3">
-          10:00
-          <br />
-          <img
-            src={weatherData.weatherIcon}
-            alt={weatherData.weatherDescription}
-            width="45"
-          />
-          <br />
-          44°
-        </div>
-      </div>
-    </div>
-  );
-
-  let dailyForecast = (
-    <div className="dailyForecast border border-secondary rounded mt-3">
-      <h6>7 Day Forecast*</h6>
-      <hr />
-      <div className="row">
-        <div className="col-4">Wed</div>
-        <div className="col-4">
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather icon"
-            width="65"
-          />
-        </div>
-        <div className="col-4">
-          <span className="lowForecast">42°</span> | 66°
-        </div>
-      </div>
-      <hr />
-      <div className="row">
-        <div className="col-4">Thu</div>
-        <div className="col-4">
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather icon"
-            width="65"
-          />
-        </div>
-        <div className="col-4">
-          <span className="lowForecast">42°</span> | 66°
-        </div>
-      </div>
-      <hr />
-      <div className="row">
-        <div className="col-4">Fri</div>
-        <div className="col-4">
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather icon"
-            width="65"
-          />
-        </div>
-        <div className="col-4">
-          <span className="lowForecast">42°</span> | 66°
-        </div>
-      </div>
-      <hr />
-      <div className="row">
-        <div className="col-4">Sat</div>
-        <div className="col-4">
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather icon"
-            width="65"
-          />
-        </div>
-        <div className="col-4">
-          <span className="lowForecast">42°</span> | 66°
-        </div>
-      </div>
-      <hr />
-      <div className="row">
-        <div className="col-4">Sun</div>
-        <div className="col-4">
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather icon"
-            width="65"
-          />
-        </div>
-        <div className="col-4">
-          <span className="lowForecast">42°</span> | 66°
-        </div>
-      </div>
-      <hr />
-      <div className="row">
-        <div className="col-4">Mon</div>
-        <div className="col-4">
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather icon"
-            width="65"
-          />
-        </div>
-        <div className="col-4">
-          <span className="lowForecast">42°</span> | 66°
-        </div>
-      </div>
-      <hr />
-      <div className="row">
-        <div className="col-4">Tue</div>
-        <div className="col-4">
-          <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="weather icon"
-            width="65"
-          />
-        </div>
-        <div className="col-4">
-          <span className="lowForecast">42°</span> | 66°
-        </div>
-      </div>
-    </div>
-  );
-
   let footer = (
     <footer className="mt-4">
       This project was coded by: {""}
@@ -241,8 +87,8 @@ export default function Weather(props) {
       <div className="Weather">
         {form}
         <WeatherInfo data={weatherData} />
-        {hourlyForecast}
-        {dailyForecast}
+        <HourlyForecast data={weatherData} />
+        <DailyForecast />
         {footer}
       </div>
     );
