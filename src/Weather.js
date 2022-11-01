@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -56,40 +56,6 @@ export default function Weather(props) {
         </div>
       </div>
     </form>
-  );
-
-  let weatherInfo = (
-    <div className="mt-4">
-      <small>
-        <FormattedDate date={weatherData.date} />
-      </small>
-      <img
-        src={weatherData.weatherIcon}
-        alt={weatherData.weatherDescription}
-        className="weatherIcon"
-      />
-      <h1 className="city">{weatherData.location}</h1>
-      <ul className="currentWeather">
-        <li className="temperature">
-          {Math.round(weatherData.temperature)}
-          <span className="units">°F</span>
-        </li>
-        <li className="weatherDescription">{weatherData.weatherDescription}</li>
-        <li className="feelsLike">
-          Feels like: {Math.round(weatherData.feelsLike)}°F
-        </li>
-        <li className="highLowTemp">
-          H: {Math.round(weatherData.highTemp)}°F | L:{" "}
-          {Math.round(weatherData.lowTemp)}°F
-        </li>
-        <li className="humidity">
-          Humidity: {Math.round(weatherData.humidity)}%
-        </li>
-        <li className="wind">
-          Wind: {Math.round(weatherData.temperature)} mph
-        </li>
-      </ul>
-    </div>
   );
 
   let hourlyForecast = (
@@ -274,7 +240,7 @@ export default function Weather(props) {
     return (
       <div className="Weather">
         {form}
-        {weatherInfo}
+        <WeatherInfo data={weatherData} />
         {hourlyForecast}
         {dailyForecast}
         {footer}
