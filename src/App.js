@@ -15,7 +15,7 @@ export default function App() {
             🚧
           </span>
         </h2>
-        <Weather />
+        <Weather defaultCity="San Francisco" />
       </div>
     </div>
   );

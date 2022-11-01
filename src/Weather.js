@@ -3,11 +3,11 @@ import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 
-export default function Weather() {
-  const [city, setCity] = useState("");
+export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ loaded: false });
 
-  function displayWeather(response) {
+  function handleResponse(response) {
     setWeatherData({
       loaded: true,
       date: new Date(response.data.dt * 1000),
@@ -23,12 +23,16 @@ export default function Weather() {
     });
   }
 
-  function handleSearch(event) {
-    event.preventDefault();
-    let apiKey = `39b37e744d3d61db56e033dc0b8a5694`;
+  function search() {
+    const apiKey = `39b37e744d3d61db56e033dc0b8a5694`;
     let unit = `imperial`;
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-    axios.get(apiURL).then(displayWeather);
+    axios.get(apiURL).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
   }
 
   function updateCity(event) {
@@ -36,7 +40,7 @@ export default function Weather() {
   }
 
   let form = (
-    <form onSubmit={handleSearch} className="SearchEngine mt-3">
+    <form onSubmit={handleSubmit} className="SearchEngine mt-3">
       <div className="row">
         <div className="col-8">
           <input
@@ -277,6 +281,7 @@ export default function Weather() {
       </div>
     );
   } else {
+    search();
     return (
       <div className="Weather">
         {form}
