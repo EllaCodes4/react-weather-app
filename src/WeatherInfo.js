@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import Temperature from "./Temperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -14,10 +15,7 @@ export default function WeatherInfo(props) {
       />
       <h1 className="city">{props.data.location}</h1>
       <ul className="currentWeather">
-        <li className="temperature">
-          {Math.round(props.data.temperature)}
-          <span className="units">°F</span>
-        </li>
+        <Temperature fahrenheit={props.data.temperature} />
         <li className="weatherDescription">{props.data.weatherDescription}</li>
         <li className="feelsLike">
           Feels like: {Math.round(props.data.feelsLike)}°F

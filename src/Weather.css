@@ -23,18 +23,6 @@ ul {
   padding: 0;
 }
 
-.Weather .temperature {
-  font-size: 50px;
-  line-height: 1;
-}
-
-.Weather .units {
-  font-size: 25px;
-  line-height: 1;
-  position: relative;
-  top: -18px;
-  margin-left: 2px;
-}
 .Weather .weatherDescription,
 .city {
   text-transform: capitalize;
