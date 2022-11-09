@@ -22,6 +22,7 @@ export default function Weather(props) {
       lowTemp: response.data.main.temp_min,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
+      coordinates: response.data.coord,
     });
   }
 
@@ -88,7 +89,7 @@ export default function Weather(props) {
         {form}
         <WeatherInfo data={weatherData} />
         <HourlyForecast data={weatherData} />
-        <DailyForecast />
+        <DailyForecast coordinates={weatherData.coordinates} />
         {footer}
       </div>
     );
