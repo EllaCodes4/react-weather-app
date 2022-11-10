@@ -7,17 +7,27 @@ export default function DailyForecast(props) {
   const [dailyForecast, setDailyForecast] = useState(null);
 
   function handleResponse(response) {
+    setDailyForecast(response.data.daily);
     setLoaded(true);
-    setDailyForecast(response.data.daily[0]);
   }
 
   if (loaded) {
     return (
       <div className="dailyForecast border border-secondary rounded mt-3">
-        <h6>7 Day Forecast*</h6>
+        <h6>7 Day Forecast</h6>
         <hr />
-        <DailyForecastDay data={dailyForecast} />
-        <hr />
+        <div className="row">
+          {dailyForecast.map(function(dailyForecast, index) {
+            if (index < 7) {
+              return (
+                <div className="row" key={index}>
+                  <DailyForecastDay data={dailyForecast} />
+                  <hr className="ms-2 ps-0" />
+                </div>
+              );
+            }
+          })}
+        </div>
       </div>
     );
   } else {
@@ -26,6 +36,7 @@ export default function DailyForecast(props) {
     let latitude = props.coordinates.lat;
     let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
     axios.get(apiURL).then(handleResponse);
+
     return null;
   }
 }

@@ -3,6 +3,7 @@ import React from "react";
 export default function DailyForecastDay(props) {
   let forecastWeatherIconCode = props.data.weather[0].icon;
   let weatherIcon = `https://openweathermap.org/img/wn/${forecastWeatherIconCode}@2x.png`;
+  let weatherDescription = props.data.weather[0].description;
 
   function maxTemperature() {
     let tempertature = Math.round(props.data.temp.max);
@@ -20,16 +21,13 @@ export default function DailyForecastDay(props) {
     let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
     return days[day];
   }
+
   return (
     <div className="DailyForecastDay">
       <div className="row">
         <div className="col-4">{day()}</div>
         <div className="col-4">
-          <img
-            src={weatherIcon}
-            alt="{props.data.weather[0].description}"
-            width="65"
-          />
+          <img src={weatherIcon} alt={weatherDescription} width="65" className= "dailyForecastWeatherIcon"/>
         </div>
         <div className="col-4">
           <span className="lowForecast">{minTemperature()}°</span> |{" "}
