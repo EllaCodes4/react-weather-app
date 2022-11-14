@@ -29,7 +29,7 @@ export default function DailyForecast(props) {
                   <hr className="ms-3 ps-0" />
                 </div>
               );
-            }
+            } else return null;
           })}
         </div>
       </div>
