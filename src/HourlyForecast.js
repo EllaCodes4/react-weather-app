@@ -35,7 +35,7 @@ export default function HourlyForecast(props) {
       </div>
     );
   } else {
-    let apiKey = `6d68aadfacdd4f5163bc273049a0cf2d`;
+    let apiKey = `97f8e93f00107773f88eafd933ce86b7`;
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
     let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;

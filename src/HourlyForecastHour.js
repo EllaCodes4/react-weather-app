@@ -7,7 +7,7 @@ export default function HourlyForecastHour(props) {
 
   function day() {
     let date = new Date(props.data.dt * 1000);
-    let hour = date.getHours();
+    let hour = date.getHours() % 12 || 12;
     if (hour === 0) {
       return `${12}:00`;
     }
