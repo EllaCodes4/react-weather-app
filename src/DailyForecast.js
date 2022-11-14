@@ -29,13 +29,15 @@ export default function DailyForecast(props) {
                   <hr className="ms-3 ps-0" />
                 </div>
               );
-            } else return null;
+            } else {
+              return null;
+            }
           })}
         </div>
       </div>
     );
   } else {
-    let apiKey = `ad793a6d772939c31783de5822791acf`;
+    let apiKey = `6d68aadfacdd4f5163bc273049a0cf2d`;
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
     let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
