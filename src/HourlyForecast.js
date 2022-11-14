@@ -13,7 +13,6 @@ export default function HourlyForecast(props) {
   function handleResponse(response) {
     setHourlyForecast(response.data.hourly);
     setLoaded(true);
-    console.log(response.data.hourly);
   }
 
   if (loaded) {
