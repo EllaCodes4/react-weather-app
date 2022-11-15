@@ -4,7 +4,6 @@ import WeatherInfo from "./WeatherInfo";
 import HourlyForecast from "./HourlyForecast";
 import DailyForecast from "./DailyForecast";
 import "./Weather.css";
-import BackgroundVideo from "./BackgroundVideo";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
