@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DailyForecastDay from "./DailyForecastDay";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 
 export default function DailyForecast(props) {
   const [loaded, setLoaded] = useState(false);
@@ -18,7 +20,9 @@ export default function DailyForecast(props) {
   if (loaded) {
     return (
       <div className="dailyForecast border border-secondary rounded mt-3">
-        <h6>7 Day Forecast</h6>
+        <h6>
+          <FontAwesomeIcon icon={faCalendarDays} /> 7 Day Forecast
+        </h6>
         <hr className="ms-1 ps-1" />
         <div className="row">
           {dailyForecast.map(function(dailyForecast, index) {

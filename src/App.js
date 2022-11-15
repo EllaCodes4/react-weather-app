@@ -6,15 +6,6 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <h2 className="mt-3">
-          <span role="img" aria-label="construction emoji">
-            🚧
-          </span>{" "}
-          Weather App Under Construction
-          <span role="img" aria-label="construction emoji">
-            🚧
-          </span>
-        </h2>
         <Weather defaultCity="San Francisco" />
       </div>
     </div>

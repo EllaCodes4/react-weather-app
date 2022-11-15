@@ -1,12 +1,17 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import Temperature from "./Temperature";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
 
 export default function WeatherInfo(props) {
   return (
     <div className="mt-4">
       <small>
-        <FormattedDate date={props.data.date} />
+        <span>
+          <FontAwesomeIcon icon={faCalendarDay} />{" "}
+          <FormattedDate date={props.data.date} />
+        </span>
       </small>
       <img
         src={props.data.weatherIcon}

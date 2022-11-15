@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import HourlyForecastHour from "./HourlyForecastHour";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function HourlyForecast(props) {
   const [loaded, setLoaded] = useState(false);
@@ -18,7 +21,7 @@ export default function HourlyForecast(props) {
   if (loaded) {
     return (
       <div className="hourlyForecast border border-secondary rounded mt-4">
-        <h6>Hourly Forecast</h6>
+        <h6><FontAwesomeIcon icon={faClock} />  Hourly Forecast</h6>
         <div className="row">
           {hourlyForecast.map(function(hourlyForecast, index) {
             if (index < 4) {
