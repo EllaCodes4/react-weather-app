@@ -1,3 +1,14 @@
+.Weather {
+  padding: 10px;
+  margin: 50px auto;
+  max-width: 350px;
+  border: 1px solid #9fd3c7;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  background: #9fd3c7;
+  color: #385170;
+  opacity: 0.93;
+}
 .Weather small {
   display: block;
 }

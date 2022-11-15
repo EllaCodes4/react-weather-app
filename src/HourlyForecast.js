@@ -4,7 +4,6 @@ import HourlyForecastHour from "./HourlyForecastHour";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 
-
 export default function HourlyForecast(props) {
   const [loaded, setLoaded] = useState(false);
   const [hourlyForecast, setHourlyForecast] = useState(null);
@@ -21,7 +20,9 @@ export default function HourlyForecast(props) {
   if (loaded) {
     return (
       <div className="hourlyForecast border border-secondary rounded mt-4">
-        <h6><FontAwesomeIcon icon={faClock} />  Hourly Forecast</h6>
+        <h6>
+          <FontAwesomeIcon icon={faClock} /> Hourly Forecast
+        </h6>
         <div className="row">
           {hourlyForecast.map(function(hourlyForecast, index) {
             if (index < 4) {
@@ -38,7 +39,7 @@ export default function HourlyForecast(props) {
       </div>
     );
   } else {
-    let apiKey = `97f8e93f00107773f88eafd933ce86b7`;
+    let apiKey = `3f6be1c407b0d9d1933561808db358ba`;
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
     let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;

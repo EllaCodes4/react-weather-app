@@ -4,6 +4,7 @@ import WeatherInfo from "./WeatherInfo";
 import HourlyForecast from "./HourlyForecast";
 import DailyForecast from "./DailyForecast";
 import "./Weather.css";
+import BackgroundVideo from "./BackgroundVideo";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -23,6 +24,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       coordinates: response.data.coord,
+      weatherIconCode: response.data.weather[0].icon,
     });
   }
 
@@ -85,20 +87,28 @@ export default function Weather(props) {
 
   if (weatherData.loaded) {
     return (
-      <div className="Weather">
-        {form}
-        <WeatherInfo data={weatherData} />
-        <HourlyForecast coordinates={weatherData.coordinates} />
-        <DailyForecast coordinates={weatherData.coordinates} />
-        {footer}
+      <div>
+        <div className="Weather">
+          <div className="container">
+            {form}
+            <WeatherInfo data={weatherData} />
+            <HourlyForecast coordinates={weatherData.coordinates} />
+            <DailyForecast coordinates={weatherData.coordinates} />
+            {footer}
+          </div>
+        </div>
       </div>
     );
   } else {
     search();
     return (
-      <div className="Weather">
-        {form}
-        {footer}
+      <div>
+        <div className="Weather">
+          <div className="container">
+            {form}
+            {footer}
+          </div>
+        </div>
       </div>
     );
   }
