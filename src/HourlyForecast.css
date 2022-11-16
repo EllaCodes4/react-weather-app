@@ -1,0 +1,10 @@
+.hourlyForecast {
+  background: #dfdfdf;
+  padding: 10px 14px;
+   
+}
+
+.hourlyForecast h6 {
+  text-align: left;
+  padding-left: 9px;
+}

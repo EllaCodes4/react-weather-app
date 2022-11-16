@@ -1,0 +1,34 @@
+.WeatherInfo small {
+  display: block;
+}
+
+.WeatherInfo .weatherIcon {
+  height: 70px;
+}
+
+.WeatherInfo .city {
+  font-size: 25px;
+  margin: 0;
+}
+
+.WeatherInfo .currentWeather {
+  margin: 0px 98px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.WeatherInfo li,
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.WeatherInfo .weatherDescription,
+.city {
+  text-transform: capitalize;
+}
+
+.WeatherInfo .weatherDescription {
+  font-size: 12px;
+  line-height: 1.5;
+}

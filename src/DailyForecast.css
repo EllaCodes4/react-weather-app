@@ -1,0 +1,19 @@
+.dailyForecast {
+  background: #dfdfdf;
+  padding: 10px 14px;
+}
+
+.dailyForecast h6 {
+  text-align: left;
+  padding-left: 9px;
+}
+
+.dailyForecast hr {
+  color: white;
+  opacity: 1;
+  margin: 0px 0px 10px;
+}
+
+.dailyForecast .lowForecast {
+  opacity: 0.6;
+}

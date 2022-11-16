@@ -1,12 +1,13 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import Temperature from "./Temperature";
+import "./WeatherInfo.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
 
 export default function WeatherInfo(props) {
   return (
-    <div className="mt-4">
+    <div className="WeatherInfo mt-4">
       <small>
         <span>
           <FontAwesomeIcon icon={faCalendarDay} />{" "}
