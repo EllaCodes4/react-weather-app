@@ -8,6 +8,8 @@ import "./Weather.css";
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ loaded: false });
+  const [backgroundVideoSrc, setBackgroundVideoSrc] = useState("");
+  const [appColor, setAppColor] = useState("rgb(89, 110, 121)");
 
   function handleResponse(response) {
     setWeatherData({
@@ -25,6 +27,46 @@ export default function Weather(props) {
       coordinates: response.data.coord,
       weatherIconCode: response.data.weather[0].icon,
     });
+
+    if (response.data.weather[0].icon === "01d") {
+      setBackgroundVideoSrc(`/videos/sun-shining.mp4`);
+      setAppColor("rgb(44, 93, 99)");
+    } else if (response.data.weather[0].icon === "01n") {
+      setBackgroundVideoSrc(`/videos/clear-night.mp4`);
+      setAppColor("rgb(69, 93, 122)");
+    } else if (
+      response.data.weather[0].icon === "50d" ||
+      response.data.weather[0].icon === "50n"
+    ) {
+      setBackgroundVideoSrc(`/videos/fog.mp4`);
+      setAppColor("rgb(89, 110, 121)");
+    } else if (
+      response.data.weather[0].icon === "02d" ||
+      response.data.weather[0].icon === "02n" ||
+      response.data.weather[0].icon === "03d" ||
+      response.data.weather[0].icon === "03n" ||
+      response.data.weather[0].icon === "04d" ||
+      response.data.weather[0].icon === "04n"
+    ) {
+      setBackgroundVideoSrc(`/videos/cloudy-sky.mp4`);
+      setAppColor("rgb(11, 117, 213)");
+    } else if (
+      response.data.weather[0].icon === "09d" ||
+      response.data.weather[0].icon === "09n" ||
+      response.data.weather[0].icon === "10d" ||
+      response.data.weather[0].icon === "10n" ||
+      response.data.weather[0].icon === "11d" ||
+      response.data.weather[0].icon === "11n"
+    ) {
+      setBackgroundVideoSrc(`/videos/rain2.mp4`);
+      setAppColor("rgb(44, 93, 99)");
+    } else if (
+      response.data.weather[0].icon === "13d" ||
+      response.data.weather[0].icon === "13n"
+    ) {
+      setBackgroundVideoSrc(`/videos/snow.mp4`);
+      setAppColor("rgb(37, 22, 27)");
+    }
   }
 
   function search() {
@@ -56,7 +98,7 @@ export default function Weather(props) {
           />
         </div>
         <div className="col-2">
-          <input type="submit" value="Search" className="btn btn-primary" />
+          <input type="submit" value="Search" className="btn btn-light" />
         </div>
       </div>
     </form>
@@ -87,7 +129,14 @@ export default function Weather(props) {
   if (weatherData.loaded) {
     return (
       <div>
-        <div className="Weather">
+        <video
+          src={backgroundVideoSrc}
+          className="background-video"
+          loop
+          muted
+          autoPlay
+        />
+        <div className="Weather" style={{ backgroundColor: appColor }}>
           <div className="container">
             {form}
             <WeatherInfo data={weatherData} />
@@ -102,6 +151,13 @@ export default function Weather(props) {
     search();
     return (
       <div>
+        <video
+          src={backgroundVideoSrc}
+          className="background-video"
+          loop
+          muted
+          autoPlay
+        />
         <div className="Weather">
           <div className="container">
             {form}
