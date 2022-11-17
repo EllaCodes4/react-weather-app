@@ -11,10 +11,6 @@
   margin-left: 2px;
 }
 
-.temperature a:hover {
-  color: white;
-}
-
 .temperature .units .active {
   text-decoration: none;
   color: white;
@@ -23,4 +19,8 @@
 
 .temperature a {
   color: #9fd3c7;
+}
+
+.temperature a:hover {
+  color: white;
 }
