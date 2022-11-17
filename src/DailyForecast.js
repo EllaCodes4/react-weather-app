@@ -20,7 +20,7 @@ export default function DailyForecast(props) {
 
   if (loaded) {
     return (
-      <div className="dailyForecast border border-secondary rounded mt-3">
+      <div className="dailyForecast mt-3">
         <h6>
           <FontAwesomeIcon icon={faCalendarDays} /> 7 DAY FORECAST
         </h6>

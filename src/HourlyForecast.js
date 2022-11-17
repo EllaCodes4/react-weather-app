@@ -20,7 +20,7 @@ export default function HourlyForecast(props) {
 
   if (loaded) {
     return (
-      <div className="hourlyForecast border border-secondary rounded mt-4">
+      <div className="hourlyForecast  mt-4">
         <h6>
           <FontAwesomeIcon icon={faClock} /> HOURLY FORECAST
         </h6>
