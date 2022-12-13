@@ -1,3 +1,17 @@
+# React Weather App
+
+A fully functional weather app, displaying global weather data for over 200,000 cities around the world, built with React. 
+
+## Features
+- Displays current weather data for over 200,000 cities worldwide, including temperature, humidity, wind, feels-like temperature, etc. 
+- 7-day forecast
+- Hourly forecast (up to 4 hours)
+- Fahrenheit and Celsius temperatures
+- 6 conditional weather backgrounds and color schemes that change based off the weather (e.g. sun shining through leaves in the background with a green color scheme or snow falling & covering a forest in the background with a brown color scheme. Other backgrounds for rain, fog, clouds, and a clear night.). 
+- Responsive & mobile-friendly
+- Originally built with vanilla Javascript and native DOM methods, featuring a current location button using native browser APIs (Geolocation). Original project here: https://ellasweatherapp.netlify.app/ React project here: https://ellasreactweatherapp.netlify.app/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
